@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --watch server -e js,html main.js"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -23,6 +23,7 @@
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "lodash": "^4.16.4",
+    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
