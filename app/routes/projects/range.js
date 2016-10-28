@@ -2,5 +2,6 @@
 
 module.exports = {
 	inboxRange: 	0.001, // 0.0005 ~92 meters,
-	mapRange: 		0.116, 	// 0.12 ~10.0 miles
+	mapRange: 0.005
+	// mapRange: 		0.116, 	// 0.12 ~10.0 miles
 }
