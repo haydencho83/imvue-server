@@ -99,7 +99,11 @@ router.post('/:projectId/dislike', (req, res, next) => {
         .catch(next);
 })
 
-
+router.post('/:projectId/remove', (req, res, next) => {
+   Project.findById(req.params.projectId)
+    .then(project => project.destroy())
+    .catch(next);
+});
 
 
 router.post('/:lat/:lng/:ang/:tilt', (req, res, next) => {
