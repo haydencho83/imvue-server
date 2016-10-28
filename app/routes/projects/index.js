@@ -9,6 +9,13 @@ const User = require('../../../db/models/user');
 const PROJECT_RANGE = require('./range.js');
 
 
+router.get('/all', (req, res, next) {
+    Project.findAll()
+        .then(projects => res.send(projects))
+        .catch(next);
+});
+
+
 router.get('/:projectId', (req, res, next) => {
     Project.findOne(
         {
