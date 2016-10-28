@@ -10,7 +10,7 @@ const Project = require('../../../db/models/project');
 router.get('/:facebook_id', (req, res, next) => {
     User.findOne({
         where: { facebook_id: req.params.facebook_id },
-        include: [{ model: Project }, { model: Drawing }]
+        include: { model: Project }
     })
         .then(user => {
             return user.getProjects();
