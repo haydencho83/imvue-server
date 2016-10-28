@@ -13,7 +13,7 @@ router.get('/:facebook_id', (req, res, next) => {
         include: { model: Project }
     })
         .then(user => {
-            return user.getProjects();
+            return user.getProjects({ include: { model: Drawing }});
         })
         .then(projects => {
             let projectsArray = projects.map(project => project.dataValues);
