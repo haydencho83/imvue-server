@@ -28,12 +28,12 @@ router.post('/favorite', (req, res, next) => {
         .then(user => {
             if (true) {
                 user.favorites.push(req.body.projectId);
-
-                user.save();
-                console.log('USER.FAVORITE*****************************\n\n', user.favorites);
-                user.decrement('n_likes');
-                res.send(user);
+                return user.save()
             }
+        })
+        .then(user => {
+            user.decrement('n_likes');
+            res.send(user);
         })
         .catch(next);
 } )
