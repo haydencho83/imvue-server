@@ -26,13 +26,14 @@ router.get('/:facebook_id', (req, res, next) => {
 router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
-            if (true) {
+            // if (true) {
                 user.favorites.push(req.body.projectId);
+                console.log('FAVORITES*****************************\n\n', user.favorites);
                 return user.save()
-            }
+            // }
         })
         .then(user => {
-            console.log('*****************************\n\n', user);
+            console.log('USER*****************************\n\n', user);
             user.decrement('n_likes');
             res.send(user);
         })
