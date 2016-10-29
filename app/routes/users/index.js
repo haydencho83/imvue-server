@@ -27,8 +27,10 @@ router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
             if (user.favorites.indexOf(req.body.projectId) == -1) {
-                let prev = user.favorites;
-                user.favorites = prev.push(req.body.projectId);
+                console.log('PROJECTID* passed here *********************\n\n', req.body.projectId);
+                let newFavorites = user.favorites.push(req.body.projectId);
+                user.favorites = newFavorites;
+                // user.favorites.push(req.body.projectId);
                 return user.save();
             }
         })
