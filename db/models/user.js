@@ -35,6 +35,7 @@ module.exports = db.define('user', {
     },
     n_likes: {
         type: Sequelize.INTEGER,
+        defaultValue: 5,
         validate: {
             max: 5,
             min: 0
