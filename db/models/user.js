@@ -24,14 +24,21 @@ module.exports = db.define('user', {
     salt: {
         type: Sequelize.STRING
     },
-    twitter_id: {
-        type: Sequelize.STRING
-    },
     facebook_id: {
         type: Sequelize.STRING
     },
     google_id: {
         type: Sequelize.STRING
+    },
+    favorites: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+    },
+    n_likes: {
+        type: Sequelize.INTEGER,
+        validate: {
+            max: 5,
+            min: 0
+        }
     }
 }, {
     instanceMethods: {
