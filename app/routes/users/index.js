@@ -27,9 +27,9 @@ router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
             // if (true) {
-                user.favorites.push(req.body.projectId);
+                user.favorites = [4];
                 console.log('FAVORITES*****************************\n\n', user.favorites);
-                return user.favorites.save()
+                return user.save()
             // }
         })
         .then(user => {
