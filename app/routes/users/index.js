@@ -23,6 +23,21 @@ router.get('/:facebook_id', (req, res, next) => {
 });
 
 
+router.post('/favorite', (req, res, next) => {
+    User.findById(req.body.userId)
+        .then(user => {
+            if (user.favorites.filter( pId => pId == req.body.projectId)) {
+            } else {
+                user.favorites.push(req.body.projectId);
+                user.increment('n_likes', {by: 1});
+                res.send(user.n_likes);
+            }
+
+        })
+        .catch(next);
+} )
+
+
 router.post('/register', function (req, res, next) {
     User.findOrCreate({
         where: {username: req.body.name, facebook_id: req.body.id}})
