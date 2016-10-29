@@ -27,7 +27,7 @@ router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
             if (user.favorites.indexOf(req.body.projectId) == -1) {
-                console.log('PROJECTID* passed here *********************\n\n', req.body.projectId);
+                console.log('============VAlidat\n\n', Array.isArray(user.favorites));
                 let newFavorites = user.favorites.push(req.body.projectId);
                 user.favorites = newFavorites;
                 // user.favorites.push(req.body.projectId);
