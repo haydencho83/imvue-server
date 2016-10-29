@@ -31,7 +31,8 @@ module.exports = db.define('user', {
         type: Sequelize.STRING
     },
     favorites: {
-        type: Sequelize.ARRAY(Sequelize.INTEGER)
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        defaultValue: []
     },
     n_likes: {
         type: Sequelize.INTEGER,
