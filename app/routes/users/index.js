@@ -27,10 +27,10 @@ router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
             if (user.favorites.indexOf(req.body.projectId) == -1) {
-                console.log('============VAlidat\n\n', Array.isArray(user.favorites));
-                let newFavorites = user.favorites.push(req.body.projectId);
-                user.favorites = newFavorites;
+
+                user.favorites = user.favorites.concat([+req.body.projectId]);
                 // user.favorites.push(req.body.projectId);
+                console.log('*************************\n\n', user.favorites);
                 return user.save();
             }
         })
