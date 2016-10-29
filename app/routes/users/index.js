@@ -26,7 +26,6 @@ router.get('/:facebook_id', (req, res, next) => {
 router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
-            user = user.dataValues;
             if (true) {
                 user.favorites.push(req.body.projectId);
                 user.decrement('n_likes');
