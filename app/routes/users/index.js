@@ -28,7 +28,7 @@ router.post('/favorite', (req, res, next) => {
         .then(user => {
             if (user.favorites.indexOf(req.body.projectId) == -1) {
                 let prev = user.favorites;
-                user.favorites = prev.push(req.boby.projectId);
+                user.favorites = prev.push(req.body.projectId);
                 return user.save();
             }
         })
