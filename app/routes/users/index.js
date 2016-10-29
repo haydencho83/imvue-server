@@ -27,7 +27,7 @@ router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
             user = user.dataValues;
-            if (user.favorites.indexOf(req.body.productId) > -1) {
+            if (true) {
                 user.favorites.push(req.body.projectId);
                 user.decrement('n_likes', {by: 1});
                 console.log('*****************\n\n', user);
