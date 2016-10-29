@@ -32,6 +32,7 @@ router.post('/favorite', (req, res, next) => {
             }
         })
         .then(user => {
+            console.log('*****************************\n\n', user);
             user.decrement('n_likes');
             res.send(user);
         })
