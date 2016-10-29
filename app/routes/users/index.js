@@ -29,7 +29,7 @@ router.post('/favorite', (req, res, next) => {
             // if (true) {
                 user.favorites.push(req.body.projectId);
                 console.log('FAVORITES*****************************\n\n', user.favorites);
-                return user.save()
+                return user.favorites.save()
             // }
         })
         .then(user => {
