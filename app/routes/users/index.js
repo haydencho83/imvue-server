@@ -28,9 +28,10 @@ router.post('/favorite', (req, res, next) => {
         .then(user => {
             if (true) {
                 user.favorites.push(req.body.projectId);
+
+                user.save();
                 console.log('*****************************\n\n', user.favorites);
                 user.decrement('n_likes');
-                user.save();
                 res.send(user);
             }
         })
