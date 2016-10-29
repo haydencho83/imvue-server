@@ -26,8 +26,7 @@ router.get('/:facebook_id', (req, res, next) => {
 router.post('/favorite', (req, res, next) => {
     User.findById(req.body.userId)
         .then(user => {
-            let filteredFavorites = user.favorites.filter( pId => pId === req.body.projectId);
-            if (filteredFavorites.length === 0) {
+            if (user.favorites.indexOf(req.body.productId) > -1) {
                 user.favorites.push(req.body.projectId);
                 user.decrement('n_likes', {by: 1});
                 user.update();
