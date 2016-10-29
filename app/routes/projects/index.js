@@ -102,6 +102,7 @@ router.post('/:projectId/dislike', (req, res, next) => {
 router.post('/:projectId/remove', (req, res, next) => {
    Project.findById(req.params.projectId)
     .then(project => project.destroy())
+    .then(() => res.sendStatus(202))
     .catch(next);
 });
 
