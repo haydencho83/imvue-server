@@ -34,10 +34,7 @@ router.post('/favorite', (req, res, next) => {
                 return user.save();
             }
         })
-        .then(user => {
-            user.decrement('n_likes');
-            res.send(user);
-        })
+        .then(user => res.send(user))
         .catch(next);
 } )
 

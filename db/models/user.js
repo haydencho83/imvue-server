@@ -33,14 +33,6 @@ module.exports = db.define('user', {
     favorites: {
         type: Sequelize.ARRAY(Sequelize.INTEGER),
         defaultValue: []
-    },
-    n_likes: {
-        type: Sequelize.INTEGER,
-        defaultValue: 5,
-        validate: {
-            max: 5,
-            min: 0
-        }
     }
 }, {
     instanceMethods: {
